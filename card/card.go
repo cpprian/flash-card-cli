@@ -101,3 +101,8 @@ func ErrOpenFile(f *os.File, err error) {
 func OpenFile(filename string) (*os.File, error) {
 	return os.OpenFile(viper.GetString("datafile"), os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
 }
+
+func CheckRecord(s string, c Card) bool {
+	_, ok := c.Question[s]
+	return ok
+}
